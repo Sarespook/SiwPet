@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info Animale</title>
+    <link rel="stylesheet" href="/css/user/animal.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div class="user-details">
+            <a th:if="${userDetails}">
+                <span th:text="${userDetails.username}"></span>
+                <a href="/logout">Logout</a>
+            </a>
+            <a th:if="${userDetails == null}" href="/login">Login</a>
+        </div>
+        <div class="logo-container">
+            <a href="/"><img src="/images/petAdoption.png" alt="Logo" class="logo"></a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Left Block: Animal Image -->
+        <div class="animal-image-container">
+            <img class="animal-image" th:src="${animal.urlImage}" alt="Animal Image">
+        </div>
+
+        <!-- Right Block: Animal Details -->
+        <div class="animal-details">
+            <!-- Adoption Conditions -->
+            <div th:if="${conditions}">
+                <ul class="conditions-list">
+                    <li th:if="${conditions.garden == true}">
+                        <b>Richiede giardino/spazio aperto</b>
+                    </li>
+                    <li th:if="${conditions.garden == false}">
+                        <b>Nessun ambiente esterno richiesto</b>
+                    </li>
+                    <li th:if="${conditions.mqs}">
+                        <b>Spazio minimo richiesto:</b>
+                        <span th:text="${conditions.mqs} + ' mqs'"></span>
+                    </li>
+                    <li>
+                        <b>Dettagli:</b>
+                        <span th:text="${conditions.details}"></span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Animal Name and Description -->
+            <div th:if="${animal}">
+                <h1 th:text="${animal.name}"></h1>
+                <p th:text="${animal.species}"></p>
+                <p th:text="${animal.description}"></p>
+            </div>
+
+            <!-- Adoption Button -->
+            <a class="adopt-button" th:href="@{'/formNewRequest' + '/' + ${animal.id}}">ADOTTA</a>
+        </div>
+    </main>
+
+</body>
+
+</html>
+

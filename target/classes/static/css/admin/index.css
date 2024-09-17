@@ -1,0 +1,129 @@
+body {
+		    font-family: Arial, sans-serif;
+		    text-align: center;
+		    background-color: #f9f9f9;
+		    margin: 0;
+		    padding: 0;
+		}
+
+		header {
+		    display: flex;
+		    justify-content: space-between;
+		    align-items: center;
+		    padding: 10px;
+		    background-color: #007bff;
+		    color: #fff;
+		    position: fixed;
+		    top: 0;
+		    width: 100%;
+		    border-bottom-left-radius: 15px;
+		    border-bottom-right-radius: 15px;
+		    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		    z-index: 1000;
+		    box-sizing: border-box; /* Ensures padding is included in the width */
+		}
+
+		header .user-info {
+		    display: flex;
+		    align-items: center;
+		}
+
+		header a {
+		    color: #fff;
+		    text-decoration: none;
+		    margin-left: 15px;
+		    padding: 8px 12px;
+		    border-radius: 15px;
+		    transition: background-color 0.3s ease, color 0.3s ease;
+		}
+
+		header a:hover {
+		    background-color: white;
+		    color: #007bff;
+		}
+
+		.logo-container {
+		            display: flex;
+		            align-items: center;
+		        }
+
+		        .logo {
+		            max-width: 100px;
+		            height: auto;
+		            border-radius: 50%;
+		            border: 3px solid #fff;
+		            transition: transform 0.3s ease;
+		        }
+
+		        .logo-container:hover .logo {
+		            transform: scale(1.1);
+		        }
+
+		main {
+		    padding-top: calc(10px + 8vw); /* Adjusts padding based on logo size */
+		}
+
+		.welcome-section {
+		    margin-top: 20px;
+		}
+
+		.admin-options {
+		    display: flex;
+		    flex-direction: column;
+		    gap: 15px;
+		    align-items: center;
+		    margin-top: 20px;
+		}
+
+		.btn-option {
+		    display: inline-block;
+		    padding: 10px 20px;
+		    background-color: #007bff;
+		    color: #fff;
+		    border: none;
+		    border-radius: 5px;
+		    text-decoration: none;
+		    font-size: 16px;
+		    transition: background-color 0.3s ease, color 0.3s ease;
+		}
+
+		.btn-option:hover {
+		    background-color: white;
+		    color: #007bff;
+		    border: 2px solid #007bff;
+		}
+
+		@media (max-width: 768px) {
+		    header {
+		        flex-direction: column;
+		        align-items: center;
+		        padding: 10px;
+		        text-align: center;
+		    }
+
+		    .logo-container img {
+		        width: 10vw;
+		    }
+
+		    .btn-option {
+		        font-size: 14px;
+		        padding: 8px 16px;
+		    }
+		}
+
+		@media (max-width: 480px) {
+		    header {
+		        flex-direction: column;
+		        align-items: center;
+		        padding: 10px;
+		    }
+
+		    .logo-container img {
+		        width: 12vw;
+		    }
+
+		    .btn-option {
+		        font-size: 12px;
+		        padding: 6px 12px;
+		    }
+		}

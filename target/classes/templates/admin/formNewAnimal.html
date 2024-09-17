@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuovo Animale</title>
+    <link rel="stylesheet" href="/css/admin/formNewAnimal.css">
+</head>
+<body>
+    <header>
+        <div class="user-details">
+            <a th:if="${userDetails == null}" href="/login">Login</a>
+            <a th:if="${userDetails}">
+                <span th:text="${userDetails.username}"></span>
+                <a href="/logout">Logout</a>
+            </a>
+        </div>
+        <div class="logo-container">
+            <a href="/">
+                <img src="/images/petAdoption.png" alt="Logo" class="logo">
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <h1>Inserisci Nuovo Animale</h1>
+
+        <form th:action="@{/animal}" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="image">Immagine:</label>
+                <input type="file" id="image" name="image" accept="image/png, image/jpeg" >
+            </div>
+            
+            <div class="form-group">
+                <label for="name">Nome:</label>
+                <input id="name" type="text" placeholder="Nome" th:field="${animal.name}">
+                <span th:if="${#fields.hasErrors('animal.name')}" th:errors="${animal.name}" th:style="'color:red'"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="species">Specie:</label>
+                <input id="species" type="text" placeholder="Specie" th:field="${animal.species}">
+                <span th:if="${#fields.hasErrors('animal.species')}" th:errors="${animal.species}" th:style="'color:red'"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Descrizione:</label>
+                <textarea id="description" placeholder="Descrizione" th:field="${animal.description}"></textarea>
+                <span th:if="${#fields.hasErrors('animal.description')}" th:errors="${animal.description}" th:style="'color:red'"></span>
+            </div>
+
+            <!-- Inline checkbox and label -->
+            <div class="form-group inline-checkbox">
+                <input type="checkbox" id="garden" th:field="${conditions.garden}">
+                <label for="garden">Richiede giardino/spazio aperto</label>
+            </div>
+
+            <div class="form-group">
+                <label for="mqs">Mqs:</label>
+                <input id="mqs" type="text" placeholder="Mqs" th:field="${conditions.mqs}">
+                <span th:if="${#fields.hasErrors('conditions.mqs')}" th:errors="${conditions.mqs}" th:style="'color:red'"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="details">Dettagli:</label>
+                <textarea id="details" placeholder="Dettagli aggiuntivi" th:field="${conditions.details}"></textarea>
+                <span th:if="${#fields.hasErrors('conditions.details')}" th:errors="${conditions.details}" th:style="'color:red'"></span>
+            </div>
+
+            <button type="submit">Aggiungi</button>
+        </form>
+    </main>
+</body>
+</html>

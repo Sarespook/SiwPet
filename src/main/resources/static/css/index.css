@@ -1,0 +1,104 @@
+/* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            text-align: center;
+			padding-top: 90px; /* Adjust this value to create enough space for the navbar */
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #007bff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between; /* Sposta gli elementi ai lati opposti */
+            align-items: center;
+            border-bottom-left-radius: 15px; /* Bordi arrotondati */
+            border-bottom-right-radius: 15px; /* Bordi arrotondati */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Effetto ombra sottile */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+			
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 20px;
+            padding: 10px 15px;
+            border-radius: 15px; /* Bordi arrotondati */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Effetto fading */
+            background-color: transparent; /* Blended with navbar */
+        }
+
+        header a:hover {
+            background-color: white;
+            color: #007bff;
+        }
+
+		.logo-container {
+		            display: flex;
+		            align-items: center;
+		        }
+
+		        .logo {
+		            max-width: 100px;
+		            height: auto;
+		            border-radius: 50%;
+		            border: 3px solid #fff;
+		            transition: transform 0.3s ease;
+		        }
+
+		        .logo-container:hover .logo {
+		            transform: scale(1.1);
+		        }
+
+        /* Main Content */
+        .main-content {
+            padding: 20px;
+            margin-top: 80px; /* Space for the fixed header */
+        }
+
+        h1 {
+            margin: 20px 0;
+            font-size: 2em;
+            color: #007bff;
+        }
+
+        .link-container {
+            margin-top: 20px;
+        }
+
+        .link-container a {
+            font-size: 1.2em;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .link-container a:hover {
+            text-decoration: underline;
+        }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .logo-container {
+                margin-top: 10px;
+            }
+        }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiwMovie - Login</title>
+	<link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body class="login">
+
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-links">
+			<a th:if="${userDetails == null}" href="/login">Login</a>
+			<a th:if="${userDetails != null}" href="/logout">Logout</a>
+            <a href="/register">Registrati</a>
+        </div>
+        <div class="logo-container">
+			<a href="/">
+                <img src="/images/petAdoption.png" alt="Logo" class="logo">
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="login-box">
+            <h1>Login</h1>
+            <form th:action="@{/login}" method="POST">
+                <div class="input-group">
+                    <label for="username">Username:</label>
+                    <input id="username" name="username" type="text" required />
+                </div>
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input id="password" name="password" type="password" required />
+                </div>
+                <div class="error-message" th:if="${param.error != null}">
+                    Username o password errati
+                </div>
+                <div class="input-group">
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+

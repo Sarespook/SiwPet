@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Richieste</title>
+    <link rel="stylesheet" href="/css/admin/requests.css">
+</head>
+<body>
+    <header>
+        <div class="user-details">
+            <a th:if="${userDetails == null}" href="/login">Login</a>
+            <a th:if="${userDetails}">
+                <span th:text="${userDetails.username}"></span>
+                <a href="/logout">Logout</a>
+            </a>
+        </div>
+
+        <div class="logo-container">
+            <a href="/">
+                <img src="/images/petAdoption.png" alt="Logo" class="logo">
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <h1 th:text="'Lista Richieste per ' + ${animal.name}"></h1>
+        <div th:if="${requests == null || requests.isEmpty()}" class="no-requests">
+            Non ci sono Richieste disponibili al momento
+        </div>
+        <ul class="request-list">
+            <li class="request-item" th:each="request : ${requests}">
+                <img class="request-img" th:src="${request.urlImage}" alt="Request Image">
+                <a class="request-link" th:href="@{'/admin/request/' + ${request.id}}"
+                    th:text="'Richiesta ' + ${request.id} + ' per ' + ${animal.name}">Richiesta</a>
+            </li>
+        </ul>
+    </main>
+</body>
+</html>
+

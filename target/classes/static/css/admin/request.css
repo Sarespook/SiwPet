@@ -1,0 +1,130 @@
+body {
+		    font-family: Arial, sans-serif;
+		    margin: 0;
+		    padding: 0;
+		    background-color: #f4f4f9;
+		    color: #333;
+		    line-height: 1.6;
+		}
+
+		header {
+		    background-color: #007bff;
+		    color: white;
+		    padding: 10px 20px;
+		    display: flex;
+		    justify-content: space-between;
+		    align-items: center;
+		    position: fixed;
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		    z-index: 1000;
+		    border-bottom-left-radius: 15px;
+		    border-bottom-right-radius: 15px;
+		}
+
+		header a {
+		    color: white;
+		    text-decoration: none;
+		    padding: 10px 15px;
+		    border-radius: 15px;
+		    transition: background-color 0.3s ease, color 0.3s ease;
+		}
+
+		header a:hover {
+		    background-color: white;
+		    color: #007bff;
+		}
+
+		.logo-container {
+		            display: flex;
+		            align-items: center;
+		        }
+
+				.logo {
+				           max-width: 100px;
+				           height: auto;
+				           border-radius: 50%;
+				           border: 3px solid #fff;
+				           transition: transform 0.3s ease;
+				       }
+
+		.logo-container:hover .logo {
+		transform: scale(1.1);
+		 }
+
+		.info-container {
+		    font-size: 18px;
+		    max-width: 50%;
+		    padding: 20px;
+		    margin-left: 20px;
+		    margin-top: 90px; /* Adjusted space to account for header height */
+		    margin-bottom: 30px;
+		    border-radius: 8px;
+		    background-color: white;
+		    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		.info-container p {
+		    margin: 15px 0;
+		    padding: 10px;
+		    background-color: #f9f9f9;
+		    border-left: 5px solid #007bff;
+		    border-radius: 4px;
+		}
+
+		ul {
+		    list-style-type: none;
+		    padding: 0;
+		}
+
+		ul li {
+		    padding: 10px;
+		    margin-bottom: 10px;
+		    border-radius: 4px;
+		    color: rgb(0, 0, 0);
+		}
+
+		.garden-available {
+		    background-color: #28a745;
+		    color: white;
+		}
+
+		.garden-unavailable {
+		    background-color: #dc3545;
+		    color: white;
+		}
+
+		.accepted {
+		    background-color: #28a745;
+		    color: white;
+		}
+
+
+		.btn-accept {
+		    display: inline-block;
+		    padding: 12px 20px;
+		    background-color: #007bff;
+		    color: white;
+		    text-align: center;
+		    text-decoration: none;
+		    border-radius: 4px;
+		    margin-top: 20px;
+		    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+		    font-size: 18px;
+		    border: 2px solid transparent;
+		}
+
+		.btn-accept:hover {
+		    background-color: white;
+		    color: #007bff;
+		    border: 2px solid #007bff;
+		}
+
+		.image-container {
+		    max-width: 50%;
+		    margin: 20px;
+		    border-radius: 8px;
+		    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}

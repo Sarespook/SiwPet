@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Info Richiesta</title>
+    <link rel="stylesheet" href="/css/admin/request.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <a th:if="${userDetails}">
+                <span th:text="${userDetails.username}"></span>
+            </a>
+            <a href="/logout" th:if="${userDetails}">Logout</a>
+            <a href="/login" th:if="${userDetails == null}">Login</a>
+        </div>
+        <div class="logo-container">
+            <a href="/">
+                <img src="/images/petAdoption.png" alt="Logo">
+            </a>
+        </div>
+    </header>
+
+    <div style="display: flex; max-width: 1200px; margin: 20px auto;">
+        <div class="info-container">
+            <h1 th:text="'Richiesta per ' + ${animal.name} + ' di ' + ${adopter.name}"></h1>
+            <p th:text="'Metratura dell\'abitazione: ' + ${request.mqs} + ' mqs' +'( min. '+${request.animal.conditions.mqs}+' )'"></p>
+            <ul>
+                <li th:if="${request.garden == true}" class="garden-available">
+                    <b>Giardino disponibile</b>
+                </li>
+                <li th:if="${request.garden == false}" class="garden-unavailable">
+                    <b>Giardino non disponibile</b>
+                </li>
+                <li th:if="${request.accepted == true}" class="accepted">
+                    <b>Richiesta Accettata!</b>
+                </li>
+            </ul>
+            <a th:if="${request.accepted==false}" th:href="@{'/admin/accept/' + ${request.id}}" class="btn-accept">Accetta Adozione</a>
+        </div>
+
+        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div class="image-container">
+                <img class="immagine_richiesta" th:src="${request.urlImage}" alt="Image of the request">
+            </div>
+            <div class="image-container">
+                <img class="immagine_animale" th:src="${request.animal.urlImage}" alt="Image of the animal">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+

@@ -1,0 +1,180 @@
+/* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            text-align: center;
+            padding-top: 90px; /* Space for the navbar */
+        }
+
+        /* Navbar Styling */
+        header {
+            background-color: #007bff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 20px;
+            padding: 10px 15px;
+            border-radius: 15px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            background-color: transparent;
+        }
+
+        header a:hover {
+            background-color: white;
+            color: #007bff;
+        }
+
+		.logo-container {
+		            display: flex;
+		            align-items: center;
+		        }
+
+		        .logo {
+		            max-width: 100px;
+		            height: auto;
+		            border-radius: 50%;
+		            border: 3px solid #fff;
+		            transition: transform 0.3s ease;
+		        }
+
+		        .logo-container:hover .logo {
+		            transform: scale(1.1);
+		        }
+
+        /* Main Content */
+        .container {
+            padding: 20px;
+            max-width: 1000px; /* Increase max-width for more space */
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Space between the items */
+        }
+
+        .image-container {
+            flex: 1 1 300px; /* Flex-grow, flex-shrink, and flex-basis */
+            max-width: 300px;
+            margin-right: 20px;
+        }
+
+        .immagine_richiesta {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-container {
+            flex: 1 1 600px; /* Flex-grow, flex-shrink, and flex-basis */
+            max-width: 600px;
+            text-align: left; /* Align text to the left */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2em;
+            color: #007bff;
+        }
+
+        .info-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .info-list li {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .garden-available {
+            color: #28a745;
+        }
+
+        .garden-unavailable {
+            color: #dc3545;
+        }
+
+        /* Button Styling */
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn-accept {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-accept:hover {
+            background-color: white;
+            color: #007bff;
+            border: 2px solid #007bff;
+        }
+
+        .btn-cancel {
+            background-color: white;
+            color: #007bff;
+            border: 2px solid #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-cancel:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .image-container, .info-container {
+                max-width: 100%;
+                margin: 0;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+        }

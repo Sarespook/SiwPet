@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiwMovie - Registrazione</title>
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+
+<body class="register">
+
+    <!-- Navbar with login/logout logic -->
+    <nav>
+        <ul>
+            <li><a th:if="${userDetails == null}" href="/login">Login</a></li>
+            <li><a th:if="${userDetails != null}" href="/logout">Logout</a></li>
+        </ul>
+		<div>
+			<a th:if="${userDetails != null}" ><span th:text="${userDetails.username}"></span></a>
+		</div>
+        <div class="logo-container">
+            <a href="/">
+				<img src="/images/petAdoption.png" alt="SiwMovie Logo" class="logo"></a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="register-box">
+            <h1>Registrazione nuovo utente</h1>
+            <form th:action="@{/register}" method="POST">
+                <div class="input-group">
+                    <label for="name">Nome:</label>
+                    <input id="name" name="name" type="text" placeholder="Nome"/>
+                    <span th:if="${#fields.hasErrors('user.name')}" th:errors="${user.name}" class="error-message"></span>
+                </div>
+                <div class="input-group">
+                    <label for="surname">Cognome:</label>
+                    <input id="surname" name="surname" type="text" placeholder="Cognome"/>
+                    <span th:if="${#fields.hasErrors('user.surname')}" th:errors="${user.surname}" class="error-message"></span>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input id="email" name="email" type="email" placeholder="Email" />
+                    <span th:if="${#fields.hasErrors('user.email')}" th:errors="${user.email}" class="error-message"></span>
+                </div>
+                <div class="input-group">
+                    <label for="address">Indirizzo:</label>
+                    <input id="address" name="address" type="text" placeholder="Indirizzo"/>
+                    <span th:if="${#fields.hasErrors('user.address')}" th:errors="${user.address}" class="error-message"></span>
+                </div>
+                <div class="input-group">
+                    <label for="username">Username:</label>
+                    <input id="username" name="username" type="text" placeholder="Username"/>
+                    <span th:if="${#fields.hasErrors('credentials.username')}" th:errors="${credentials.username}" class="error-message"></span>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input id="password" name="password" type="password" placeholder="Password" />
+                    <span th:if="${#fields.hasErrors('credentials.password')}" th:errors="${credentials.password}" class="error-message"></span>
+                </div>
+                <div class="input-group">
+                    <button type="submit">Registra</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
+

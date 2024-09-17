@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info Richiesta</title>
+    <link rel="stylesheet" href="/css/user/request.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <a th:if="${userDetails}">
+                <span th:text="${userDetails.username}"></span>
+            </a>
+            <a href="/" th:if="${userDetails == null}">Home</a>
+            <a href="/logout" th:if="${userDetails}">Logout</a>
+            <a href="/login" th:if="${userDetails == null}">Login</a>
+        </div>
+        <div class="logo-container">
+            <a href="/"><img src="/images/petAdoption.png" alt="Logo" class="logo"></a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="image-container">
+            <img class="immagine_richiesta" th:src="${animal.urlImage}" alt="Image of the animal">
+        </div>
+
+        <div class="info-container">
+            <h1 th:text="'Richiesta per ' + ${animal.name}"></h1>
+
+            <ul class="info-list">
+                <li th:text="'Metratura dell\'abitazione: ' + ${request.mqs} + ' mqs'"></li>
+                <li th:class="${request.garden} ? 'garden-available' : 'garden-unavailable'">
+                    <b th:text="${request.garden} ? 'Giardino disponibile' : 'Giardino non disponibile'"></b>
+                </li>
+                <li>
+                    <b th:text="${request.accepted} ? 'Richiesta Accettata!' : 'Non ancora visionata'"></b>
+                </li>
+            </ul>
+
+            <div class="buttons">
+                <a th:if="${request.accepted == true}" href="#" th:href="@{/user/accept/{id}(id=${request.id})}" class="btn-accept" onclick="return confirm('Sei sicuro di voler confermare questa adozione?');">Conferma Adozione</a>
+                <a href="#" th:href="@{/user/deleteRequest/{id}(id=${request.id})}" class="btn-cancel" onclick="return confirm('Sei sicuro di voler cancellare questa richiesta?');">Cancella Richiesta</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+

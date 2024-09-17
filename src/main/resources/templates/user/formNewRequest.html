@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completa la Request</title>
+    <link rel="stylesheet" href="/css/user/formNewRequest.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-links">
+            <div th:if="${userDetails == null}">
+                <a href="/login">Login</a>
+            </div>
+            <div th:if="${userDetails}">
+                <span th:text="${userDetails.username}"></span>
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+        <div class="logo-container">
+            <a href="/">
+                <img src="/images/petAdoption.png" alt="Logo" class="logo">
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Completa la Request</h1>
+        <form th:action="@{/request/{animalId}/{adopterId}(animalId=${animal.id}, adopterId=${adopter.id})}" method="POST" enctype="multipart/form-data">
+            <div class="input-group">
+                <label for="image">Immagine:</label>
+                <input type="file" id="image" name="image" accept="image/png, image/jpeg">
+            </div>
+            <div class="input-group">
+                <label>Giardino:</label>
+                <input type="checkbox" th:field="${request.garden}">
+            </div>
+            <div class="input-group">
+                <label for="mqs">Mqs a disposizione:</label>
+                <input type="text" id="mqs" name="request.mqs" placeholder="Inserisci i metri quadri">
+                <span th:if="${#fields.hasErrors('request.mqs')}" th:errors="${request.mqs}" class="error-message"></span>
+            </div>
+            <button type="submit">Aggiungi</button>
+        </form>
+    </div>
+</body>
+
+</html>
+

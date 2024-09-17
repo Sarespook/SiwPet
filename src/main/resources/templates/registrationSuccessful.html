@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SiwMovie - Registrazione</title>
+    <link rel="stylesheet" href="/css/successful.css">
+</head>
+
+<body>
+    <header>
+        <div>
+            <span th:text="${userDetails.username}" th:if="${userDetails}"></span>
+            <a href="/">Home</a>
+            <a href="/logout" th:if="${userDetails}">Logout</a>
+            <a href="/login" th:if="${userDetails == null}">Login</a>
+        </div>
+        <div class="logo-container">
+            <a href="/"><img src="/images/petAdoption.png" alt="Logo"></a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Registrazione completata!</h1>
+        <div class="user-info">
+            <div>
+                <span>Nome: </span>
+                <span th:text="${user.name}"></span>
+            </div>
+            <div>
+                <span>Cognome: </span>
+                <span th:text="${user.surname}"></span>
+            </div>
+            <div>
+                <span>Email: </span>
+                <span th:text="${user.email}"></span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+</html>

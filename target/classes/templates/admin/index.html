@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiwPet - Admin HomePage</title>
+    <link rel="stylesheet" href="/css/admin/index.css">
+</head>
+
+<body>
+    <header>
+        <div class="user-info">
+            <div th:if="${userDetails == null}">
+                <a href="/login">Login</a>
+            </div>
+            <div th:if="${userDetails}">
+                <span th:text="${userDetails.username}"></span>
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+        <div class="logo-container">
+            <a href="/">
+                <img src="/images/petAdoption.png" alt="Pet Adoption Logo" />
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Welcome Title -->
+        <div class="welcome-section">
+            <h1>Benvenuto, Admin!</h1>
+        </div>
+
+        <!-- Admin Options -->
+        <div class="admin-options">
+            <a href="/admin/animals" class="btn-option">Visiona richieste per l'approvazione</a>
+            <a href="/formNewAnimal" class="btn-option">Aggiungi una nuova Entry nella lista adozioni</a>
+        </div>
+    </main>
+</body>
+
+</html>

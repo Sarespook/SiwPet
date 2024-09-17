@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiwPet - HomePage</title>
+    <link rel="stylesheet" href="/css/user/index.css">
+</head>
+
+<body>
+    <header>
+        <div class="nav-links">
+            <span th:text="${userDetails.username}"></span>
+            <a href="/logout">Logout</a>
+        </div>
+        <div class="logo-container">
+            <a href="/">
+                <img src="/images/petAdoption.png" alt="SiwPet Logo" class="logo">
+            </a>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <h1>Benvenuto su SiwPet</h1>
+        <div class="link-container">
+            <a href="/user/animals">Lista Adozioni</a>
+            <a href="/user/requests">Richieste Effettuate</a>
+        </div>
+    </div>
+</body>
+
+</html>
+
